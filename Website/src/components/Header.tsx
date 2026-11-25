@@ -1,30 +1,24 @@
 "use client";
+import type { JSX } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  FaMapMarkerAlt,
-  FaEnvelope,
-  FaPhoneAlt,
-  FaFacebook,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedin,
-} from "react-icons/fa";
 
 const translations = {
   en: {
-    "why-db": "Why Us",
-    advantages: "Advantages",
+    hero: "Home",
+    services: "Services",
+    "dronebuddy-centers": "Centers",
     faq: "FAQ",
     contact: "Contact",
     callUs: "Call Us",
     close: "Close",
   },
   mr: {
-    "why-db": "आम्ही का",
-    advantages: "फायदे",
+    hero: "मुख्यपृष्ठ",
+    services: "सेवा",
+    "dronebuddy-centers": "केंद्रे",
     faq: "सामान्य प्रश्न",
     contact: "संपर्क करा",
     callUs: "आम्हाला कॉल करा",
@@ -71,7 +65,7 @@ function Header({ language, setLanguage }: HeaderProps): JSX.Element {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-4 text-base lg:text-lg font-bold items-center">
-            {["#why-db", "#advantages", "#faq", "#contact"].map((section, index) => (
+            {["#hero", "#services", "#dronebuddy-centers", "#faq", "#contact"].map((section, index) => (
               <a
                 key={index}
                 onClick={handleScroll}
@@ -121,7 +115,7 @@ function Header({ language, setLanguage }: HeaderProps): JSX.Element {
             transition={{ duration: 0.4 }}
             className="fixed top-0 right-0 w-1/2 h-full bg-green-600 z-40 shadow-lg flex flex-col items-end px-6 py-10 gap-6 text-lg font-semibold text-right"
           >
-            {["#why-db", "#advantages", "#faq", "#contact"].map((section, index) => (
+            {["#hero", "#services", "#dronebuddy-centers", "#faq", "#contact"].map((section, index) => (
               <a
                 key={index}
                 onClick={handleScroll}

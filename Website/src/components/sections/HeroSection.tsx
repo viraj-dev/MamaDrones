@@ -1,9 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FaPhoneAlt } from "react-icons/fa";
+import Image from "next/image";
 
 interface HeroSectionProps {
   language: "en" | "mr";
@@ -11,45 +11,31 @@ interface HeroSectionProps {
 
 const translations = {
   en: {
-    title: "India's First Drone Service Company.",
+    title: "Agricultural drone products and services.",
     subtitle:
-      "India's fastest drone network, we deploy agricultural drones in rural areas, provide excellent drone education, repair services, and multilingual customer support, all with speed and superior quality.",
+      "Mama works with agricultural drones in the field and offers equipment, training, repair and customer support.",
     buttonText: "Buy Agricultural Drone",
   },
   mr: {
-    title: "भारतातील पहिली ड्रोन सेवा कंपनी.",
+    title: "कृषी ड्रोन उत्पादने आणि सेवा.",
     subtitle:
-      "भारतातील सर्वात वेगवान ड्रोन नेटवर्क, आम्ही ग्रामीण भागात कृषी ड्रोन तैनात करतो, उत्कृष्ट ड्रोन शिक्षण, दुरुस्ती सेवा आणि बहुभाषिक ग्राहक समर्थन प्रदान करतो, तेही वेगाने आणि उत्कृष्ट गुणवत्तेसह.",
+      "मामा कृषी ड्रोन, प्रशिक्षण, दुरुस्ती आणि ग्राहक सहाय्य यावर काम करते.",
     buttonText: "कृषी ड्रोन खरेदी करा",
   },
 };
 
 function HeroSection({ language }: HeroSectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   return (
     <>
       {/* Hero Section with Video Background */}
       <section className="relative w-full min-h-[80vh] sm:min-h-[90vh] md:min-h-[100vh] lg:min-h-[110vh] flex items-center justify-center overflow-hidden">
-        {/* Video Background */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          src="https://res.cloudinary.com/disoamdue/video/upload/v1750755028/videoplayback_online-video-cutter.com_rediws.mp4"
-        />
+        <Image src="https://res.cloudinary.com/disoamdue/image/upload/v1750657615/DroneSpraying_chdqrp.jpg" alt="Agricultural drone spraying a field" fill sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
 
         {/* Text Content */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: isVisible ? 1 : 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.35 }}
           className="relative z-10 flex flex-col items-center justify-center text-center w-[90%] md:w-[70%] h-full px-4"
         >
@@ -84,9 +70,11 @@ function HeroSection({ language }: HeroSectionProps) {
       {/* New PNG Image - Placed JUST BELOW the video section */}
       <div className="bg-white py-8 md:py-12 flex justify-center">
         <div className="max-w-5xl w-full px-4">
-          <img
-            src="/Mama_app_soon.png"        // ← Make sure this name is correct
+          <Image
+            src="/Mama_app_soon.png"
             alt="Mama Drones Spraying in Action"
+            width={1200}
+            height={800}
             className="w-full rounded-2xl shadow-xl border border-gray-200"
           />
         </div>
